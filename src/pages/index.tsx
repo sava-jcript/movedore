@@ -27,15 +27,13 @@ export default function Home(props: HomeProps) {
       <>
         <Head>
           <title>
-            Início | move.it
-      </title>
+            Início | Movedore
+          </title>
         </Head>
         <div className={styles.container}>
 
           <CountdownProvider>
-
             <ExperienceBar />
-
             <section>
               <div>
                 <Profile />
@@ -46,7 +44,6 @@ export default function Home(props: HomeProps) {
                 <ChallengeBox />
               </div>
             </section>
-
           </CountdownProvider>
         </div>
       </>
