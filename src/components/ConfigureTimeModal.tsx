@@ -33,9 +33,10 @@ export function ConfigureTimeModal() {
                 type="number"
                 id="time"
                 name="time"
+                placeholder="25"
               />
               {
-                errors.time && <div>Digite os minutos</div>
+                errors.time && <div className={styles.errorMessage}>Digite os minutos</div>
               }
             </div>
 
