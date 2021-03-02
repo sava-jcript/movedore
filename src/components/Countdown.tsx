@@ -8,7 +8,8 @@ export function Countdown() {
     hasFinished,
     isActive,
     resetCountdown,
-    startCountdown } = useContext(CountdownContext);
+    startCountdown,
+    showConfigureTimeModal } = useContext(CountdownContext);
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
@@ -27,34 +28,44 @@ export function Countdown() {
         </div>
       </div>
 
-      {hasFinished ? (
-        <button
-          disabled
-          className={styles.countdownButton}
-        >
-          Ciclo encerrado
-        </button>
-      ) : (
-          <>
-            {isActive ? (
-              <button
-                type="button"
-                className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
-                onClick={resetCountdown}
-              >
-                Abandonar ciclo
-              </button>
-            ) : (
+      <div className={styles.buttonContainer}>
+        {hasFinished ? (
+          <button
+            disabled
+            className={styles.countdownButton}
+          >
+            Ciclo encerrado
+          </button>
+        ) : (
+            <>
+              {isActive ? (
                 <button
                   type="button"
-                  className={styles.countdownButton}
-                  onClick={startCountdown}
+                  className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
+                  onClick={resetCountdown}
                 >
-                  Iniciar um ciclo
+                  Abandonar ciclo
                 </button>
-              )}
-          </>
-        )}
+              ) : (
+                  <button
+                    type="button"
+                    className={styles.countdownButton}
+                    onClick={startCountdown}
+                  >
+                    Iniciar um ciclo
+                  </button>
+                )}
+            </>
+          )}
+
+        <button
+          className={styles.configureTimeButton}
+          onClick={showConfigureTimeModal}
+        >
+          Definir tempo
+        </button>
+      </div>
+
 
 
     </div>

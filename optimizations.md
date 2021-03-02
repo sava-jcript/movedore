@@ -18,3 +18,5 @@
 * Som de sucesso para desafio sucedido
 * Som de falha para desafio fracassado
 * Som de comemoração quando subir de nível
+* O próprio usuário pode definir o tempo de pausa
+* Aumentar o tempo de pausa conforme o nível do usuário
