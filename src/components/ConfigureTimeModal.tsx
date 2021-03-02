@@ -35,7 +35,7 @@ export function ConfigureTimeModal() {
                 name="time"
               />
               {
-                errors.minutes && <div>Digite os minutos</div>
+                errors.time && <div>Digite os minutos</div>
               }
             </div>
 
