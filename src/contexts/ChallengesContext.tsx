@@ -33,17 +33,18 @@ export const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
   const [level, setLevel] = useState(rest.level ?? 1);
-  const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
+  const [currentExperience, setCurrentExperience] = useState(rest.currentExperience);
   const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
 
   const [activeChallenge, setActiveChallenge] = useState(null);
   const [isLevelUpModalOpen, setIsLevelModalOpen] = useState(false);
 
-  const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
+  const experienceToNextLevel = Math.pow((level + 1) * 3, 2);
 
-  useEffect(() => {
-    Notification.requestPermission();
-  }, [])
+  //* Request de notificação
+  // useEffect(() => {
+  //   Notification.requestPermission();
+  // }, [])
 
   useEffect(() => {
     Cookies.set('level', String(level));
@@ -52,7 +53,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
   }, [level, currentExperience, challengesCompleted])
 
   function levelUp() {
-    setLevel(level + 1);
+    setLevel(prev => prev + 1);
     setIsLevelModalOpen(true);
   }
 
@@ -68,6 +69,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
 
     new Audio('/notification.mp3').play();
 
+    //* Disparo de notificação
     // if (Notification.permission === "granted") {
     //   new Notification("Novo desafio! 🦾", {
     //     body: `Valendo ${challenge.amount} XP`

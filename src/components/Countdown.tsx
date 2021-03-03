@@ -3,13 +3,15 @@ import { CountdownContext } from '../contexts/CountdownContext';
 import styles from '../styles/components/Countdown.module.css';
 
 export function Countdown() {
-  const { minutes,
-    seconds,
+  const { time,
     hasFinished,
     isActive,
     resetCountdown,
     startCountdown,
     showConfigureTimeModal } = useContext(CountdownContext);
+
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
@@ -58,16 +60,24 @@ export function Countdown() {
             </>
           )}
 
-        <button
-          className={styles.configureTimeButton}
-          onClick={showConfigureTimeModal}
-        >
-          Definir tempo
-        </button>
+
+        {isActive ? (
+          <button
+            disabled
+            className={styles.configureTimeButton}
+            onClick={showConfigureTimeModal}
+          >
+            Definir tempo
+          </button>
+        ) : (
+            <button
+              className={styles.configureTimeButton}
+              onClick={showConfigureTimeModal}
+            >
+              Definir tempo
+            </button>
+          )}
       </div>
-
-
-
     </div>
   );
 }
