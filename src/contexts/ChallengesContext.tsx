@@ -33,7 +33,7 @@ export const ChallengesContext = createContext({} as ChallengesContextData);
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
   const [level, setLevel] = useState(rest.level ?? 1);
-  const [currentExperience, setCurrentExperience] = useState(rest.currentExperience);
+  const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0);
   const [challengesCompleted, setChallengesCompleted] = useState(rest.challengesCompleted ?? 0);
 
   const [activeChallenge, setActiveChallenge] = useState(null);
@@ -55,6 +55,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
   function levelUp() {
     setLevel(prev => prev + 1);
     setIsLevelModalOpen(true);
+    console.log("PICA!")
   }
 
   function closeLevelUpModal() {
@@ -81,7 +82,7 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
     setActiveChallenge(null);
   }
 
-  function completeChallenge() {
+  const completeChallenge = () => {
     if (!activeChallenge) {
       return;
     }
