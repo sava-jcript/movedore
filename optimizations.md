@@ -1,22 +1,30 @@
-# Responsividade
+# Otimizações do Aplicativo
 
-# Identidade visual
-## Paleta de cores
-## Componentes
-## Fontes
-## Logo (?)
+## Acessibilidade
 
-# Login
-## Apenas o nome
-## Login com o GitHub (oauth github)
+[] Responsividade
+[] Modo escuro
 
-# Leaderboard (?)
-# AWS (?)
-# Compartilhar LevelUp no Twitter
+## Performance
 
-// Insights
-* Som de sucesso para desafio sucedido
-* Som de falha para desafio fracassado
-* Som de comemoração quando subir de nível
-* O próprio usuário pode definir o tempo de pausa
-* Aumentar o tempo de pausa conforme o nível do usuário
+## Otimizações
+
+[] (?) AWS
+[] Login com nome/foto
+[] Login com GitHub (oauth)
+
+## Idetidade Visual
+
+[] (?) Paleta de cores
+[] (?) Logo
+
+## Features
+
+[] Leaderboard
+[] Compartilhar LevelUp no Twitter
+[X] Alterar o tempo de countdown
+[] SFX (desafio concluído, desafio não concluiído e ao subir de nível)
+[] Botão de ajuda
+[] Aviso do uso de Cookies
+
+(?) à decidir
