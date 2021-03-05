@@ -39,29 +39,28 @@ export function Countdown() {
             Ciclo encerrado
           </button>
         ) : (
-            <>
-              {isActive ? (
-                <button
-                  type="button"
-                  className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
-                  onClick={resetCountdown}
-                >
-                  Abandonar ciclo
-                </button>
-              ) : (
-                  <button
-                    type="button"
-                    className={styles.countdownButton}
-                    onClick={startCountdown}
-                  >
-                    Iniciar um ciclo
-                  </button>
-                )}
-            </>
-          )}
+          <>
+            {isActive ? (
+              <button
+                type="button"
+                className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
+                onClick={resetCountdown}
+              >
+                Abandonar ciclo
+              </button>
+            ) : (
+              <button
+                type="button"
+                className={styles.countdownButton}
+                onClick={startCountdown}
+              >
+                Iniciar um ciclo
+              </button>
+            )}
+          </>
+        )}
 
-
-        {isActive ? (
+        {hasFinished ? (
           <button
             disabled
             className={styles.configureTimeButton}
@@ -70,13 +69,25 @@ export function Countdown() {
             Definir tempo
           </button>
         ) : (
-            <button
-              className={styles.configureTimeButton}
-              onClick={showConfigureTimeModal}
-            >
-              Definir tempo
-            </button>
-          )}
+          <>
+            {isActive ? (
+              <button
+                disabled
+                className={styles.configureTimeButton}
+                onClick={showConfigureTimeModal}
+              >
+                Definir tempo
+              </button>
+            ) : (
+              <button
+                className={styles.configureTimeButton}
+                onClick={showConfigureTimeModal}
+              >
+                Definir tempo
+              </button>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
